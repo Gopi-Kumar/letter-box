@@ -5,11 +5,12 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose')
 const dbUrl = process.env.MONGO_URI ;
 const Schema = mongoose.Schema;
+const bodyParser = require('body-parser')
 
 
 //dbconnection
 try {
-    mongoose.connect(dbUrl, { useNewUrlParser: true },{ useUnifiedTopology: true })
+    mongoose.connect(dbUrl, { useNewUrlParser: true, useFindAndModify : false })
     console.log("Database connected");
 } catch (err) {
     console.log("Database not connected :",err);
@@ -22,19 +23,21 @@ const letter = new Schema({
     mobile : Number,
     email : String,
     address : String,
-}, timestamps)
+}, { timestamps: true })
 
 const receiverBoxSchema = new Schema({
-    name : {type : String, required : true},
+    username : {type : String, required : true},
     password : {type : String, required : true},
     letters : [letter],
 })
 
-const receiverBox = moongoose.model("receiverBox", receiverBoxSchema)
+const receiverBox = mongoose.model("receiverBox", receiverBoxSchema)
 
 //middlewares
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded());
 app.use(express.json());
+// app.use(bodyParser.urlencoded({extended : true}));
+// app.use(bodyParser.json());
 
 //routes
 
@@ -44,13 +47,11 @@ app.get("/", (req,res)=>{
 
 app.post("/newuser", async (req,res)=>{
     let {username, password} = req.body;
-    await receiverBox.findOne({username}).then(data => {
+    await receiverBox.findOne({username}).then(async data => {
         if(!data){
-            await receiverBox.insertOne({username, password}).then(data => {
-                console.log(data);
+            await new receiverBox({username, password}).save().then(data => {
                 res.json({message : "Account Created"})
             }).catch(e => {
-                console.log(e);
                 res.json({message : e});
             })
         }else{
@@ -58,15 +59,14 @@ app.post("/newuser", async (req,res)=>{
         }
     }).catch(e => {
         res.json({message : e});
-        console.log(e);
     });
     
     
 })
 
-app.post("/login", (req,res)=>{
+app.post("/login",async (req,res)=>{
     let {username, password} = req.body;
-    await receiverBox.findOne({username, password}).then(data => {
+    await receiverBox.findOne({username, password}).then( data => {
         if(data){
             console.log(data);
             res.json(data);
@@ -81,8 +81,11 @@ app.post("/login", (req,res)=>{
 })
 
 app.post("/postletter/:receiver", async (req,res)=>{
-    let {receiver, name, message, email, mobile, address} = req.params; 
-    await receiverBox.findAndUpdateOne({username : receiver}, {name, message, email, mobile, address}).save().then(data => {
+    let {receiver} = req.params; 
+    let {name, message, email, mobile, address} = req.body; 
+    // return res.send(req.body)
+    console.log(typeof(req.body))
+    await receiverBox.findOneAndUpdate({username : receiver}, {$push : {letters : {name : name, message : message, email : email,mobile : mobile,address : address}}},{ upsert: true, new: true }).then(data => {
         console.log(data)
         res.json({message : "Message Sent"})
     }).catch(err => {
