@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 require("dotenv").config();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const mongoose = require('mongoose')
 const dbUrl = process.env.MONGO_URI ;
 const Schema = mongoose.Schema;
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
 
 //dbconnection
@@ -36,13 +38,15 @@ const receiverBox = mongoose.model("receiverBox", receiverBoxSchema)
 //middlewares
 app.use(express.urlencoded());
 app.use(express.json());
-// app.use(bodyParser.urlencoded({extended : true}));
-// app.use(bodyParser.json());
+app.use(cors());
+app.use(express.static('public'));
+
+
 
 //routes
 
 app.get("/", (req,res)=>{
-    res.send("Hello server");
+    res.sendFile(path.join(__dirname + "/public/index.html"));
 })
 
 app.post("/newuser", async (req,res)=>{
@@ -84,18 +88,26 @@ app.post("/postletter/:receiver", async (req,res)=>{
     let {receiver} = req.params; 
     let {name, message, email, mobile, address} = req.body; 
     // return res.send(req.body)
-    console.log(typeof(req.body))
-    await receiverBox.findOneAndUpdate({username : receiver}, {$push : {letters : {name : name, message : message, email : email,mobile : mobile,address : address}}},{ upsert: true, new: true }).then(data => {
-        console.log(data)
-        res.json({message : "Message Sent"})
-    }).catch(err => {
-        cosole.log(err);
-        res.json({message : "Something wend wrong"})
+    // console.log(typeof(req.body))
+    await receiverBox.findOne({username : receiver}).then(async data => {
+        if(data){
+            await receiverBox.findOneAndUpdate({username : receiver}, {$push : {letters : {name : name, message : message, email : email,mobile : mobile,address : address}}},{ upsert: true, new: true }).then(data => {
+                console.log(data)
+                res.json({message : "Message Sent"})
+            }).catch(err => {
+                cosole.log(err);
+                res.json({message : "Something wend wrong"})
+            })
+        }else{
+            res.json({message : "Receiver not founded!"})
+        }
+    }).catch(e => {
+        res.json({message : e})
     })
-
+    
 })
 
 //listening
 app.listen(port, () => {
-    console.log("server is runnig at " + `${port}`)
+    console.log("server is runnig at http://localhost:" + `${port}`)
 })
