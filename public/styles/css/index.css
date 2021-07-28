@@ -39,7 +39,7 @@ body .header .navbar nav a {
   text-decoration: none;
   color: white;
   padding: 50px 20px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: light;
 }
 body .header .navbar nav a:hover {
@@ -60,21 +60,95 @@ body .hero .welcome_para {
 body .hero .welcome_para h1 {
   font-family: Acme;
   text-shadow: 3px 3px 5px black;
-  font-size: 50px;
+  font-size: 7vmin;
 }
 body .hero .welcome_para p {
   width: 500px;
   font-size: 20px;
   line-height: 30px;
 }
-body .hero .buttons {
-  margin: 30px;
+body .hero .welcome_para p a {
+  color: #F22A2A;
 }
 body .hero .buttons button {
+  margin: 15px;
   background: #F22A2A;
   font-size: 15px;
   color: white;
   padding: 15px 50px;
+  border-radius: 5px;
+}
+body .message_form, body .login_form, body .create_account_form {
+  width: 600px;
+  background: #001F21;
+  position: absolute;
+  top: 7px;
+  left: calc(50% - 300px);
+  padding: 25px 50px 25px 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  box-shadow: 1px 1px 20px 1px black;
+}
+body .message_form .close_form, body .login_form .close_form, body .create_account_form .close_form {
+  width: 100%;
+  align-items: flex-end;
+}
+body .message_form .close_form button, body .login_form .close_form button, body .create_account_form .close_form button {
+  width: 30px;
+  height: 30px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F22A2A;
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+}
+body .message_form input, body .message_form textarea, body .login_form input, body .login_form textarea, body .create_account_form input, body .create_account_form textarea {
+  background: #032E31;
+  border: 0;
+  outline: 0;
+  width: 400px;
+}
+body .message_form div, body .login_form div, body .create_account_form div {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+body .message_form div label, body .login_form div label, body .create_account_form div label {
+  margin: 3px;
+}
+body .message_form div input, body .login_form div input, body .create_account_form div input {
+  height: 30px;
+}
+body .message_form div textarea, body .login_form div textarea, body .create_account_form div textarea {
+  height: 300px;
+}
+body .message_form button, body .login_form button, body .create_account_form button {
+  margin: 15px;
+  background: #F22A2A;
+  font-size: 15px;
+  color: white;
+  padding: 15px 50px;
+  border-radius: 5px;
+}
+body .login_form {
+  height: 350px;
+  top: calc(50% - 175px);
+  display: none;
+}
+body .create_account_form {
+  height: 450px;
+  top: calc(50% - 225px);
+}
+body .message_form {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

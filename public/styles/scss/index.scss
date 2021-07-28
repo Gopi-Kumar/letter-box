@@ -22,7 +22,7 @@ body{
                     text-decoration: none;
                     color:$white-text;
                     padding:50px 20px;
-                    font-size: 20px;
+                    font-size: 15px;
                     font-weight: light;
                     &:hover{
                         background:$tc1;
@@ -39,26 +39,99 @@ body{
         text-align: center;
         .welcome_para{
             color:$white-text;
+
             h1{
                 font-family: Acme;
                 text-shadow: 3px 3px 5px $black-text;
-                font-size: 50px;
+                font-size: 7vmin;
             }
             p{
                 width:500px;
                 font-size: 20px;
                 line-height: 30px;
+                a{
+                    color:$tc2;
+                }
             }
         }
         .buttons{
-            margin:30px;
             button{
+                margin:15px;
                 background:$tc2;
                 font-size: 15px;
                 color:$white-text;;
                 padding:15px 50px;
+                border-radius: 5px;
             }
         }
+    }
+    
+    .message_form, .login_form, .create_account_form{
+        width:600px;
+        background:$tc1dark;
+        position: absolute;
+        top:7px;
+        left : calc(50% - 300px);
+        padding:25px 50px 25px 50px;
+        color:$white-text;
+        @include display_as_column_center();
+        text-align: left;
+        box-shadow: 1px 1px 20px 1px $black;
+        .close_form{
+            width:100%;
+            align-items: flex-end;
+            button{
+                width:30px;
+                height: 30px;
+                padding:15px;
+                @include display_as_column_center();
+                background:$tc2;
+                color:$white;
+                border-radius: 50%;
+                font-size: 20px;
+            }
+        }
+        input, textarea{
+            background:$tc1;
+            border:0;
+            outline:0;
+            width:400px;
+        }
+        div{
+            margin:5px;
+            @include display_as_column();
+            label{
+                margin:3px;
+            }
+            input{
+                height:30px
+            }
+            textarea{
+                height: 300px;
+            }
+        }
+        button{
+                margin:15px;
+                background:$tc2;
+                font-size: 15px;
+                color:$white-text;;
+                padding:15px 50px;
+                border-radius: 5px;
+        }
+
+    }
+    .login_form{
+        height:350px;
+        top: calc(50% - 175px);
+        display: none;
+
+    }
+    .create_account_form{
+        height:450px;
+        top: calc(50% - 225px);
+    }
+    .message_form{
+        display: none;
     }
 }
 
