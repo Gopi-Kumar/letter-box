@@ -1,0 +1,51 @@
+let messages = [
+    {
+        name : "lorem",
+        time : "23: 34",
+        email : "slafj@ saflj ",
+        message : "lorem ipsu sa klas dfklasd aslkj askdj asfdlkj s dlakj asdlkjsa lsakjf asld aflkj sflk alfdkja slkj askjf alj asl lkjajflka puwr slpweuwr n sfapwnl sa -wej aslf -we als"
+    },
+    {
+        name : "lorem",
+        time : "23: 34",
+        email : "slafj@ saflj ",
+        message : "lorem ipsu sa klas dfklasd aslkj askdj asfdlkj s dlakj asdlkjsa lsakjf asld aflkj sflk alfdkja slkj askjf alj asl lkjajflka puwr slpweuwr n sfapwnl sa -wej aslf -we als"
+    },
+    {
+        name : "lorem",
+        time : "23: 34",
+        email : "slafj@ saflj ",
+        message : "lorem ipsu sa klas dfklasd aslkj askdj asfdlkj s dlakj asdlkjsa lsakjf asld aflkj sflk alfdkja slkj askjf alj asl lkjajflka puwr slpweuwr n sfapwnl sa -wej aslf -we als"
+    },
+    {
+        name : "lorem",
+        time : "23: 34",
+        email : "slafj@ saflj ",
+        message : "lorem ipsu sa klas dfklasd aslkj askdj asfdlkj s dlakj asdlkjsa lsakjf asld aflkj sflk alfdkja slkj askjf alj asl lkjajflka puwr slpweuwr n sfapwnl sa -wej aslf -we als"
+    },
+    {
+        name : "lorem",
+        time : "23: 34",
+        email : "slafj@ saflj ",
+        message : "lorem ipsu sa klas dfklasd aslkj askdj asfdlkj s dlakj asdlkjsa lsakjf asld aflkj sflk alfdkja slkj askjf alj asl lkjajflka puwr slpweuwr n sfapwnl sa -wej aslf -we als"
+    },
+]
+
+
+function renderMessages(){
+    let messageContainer = document.querySelector("#messages");
+    messages.forEach(msg => {
+        let section = document.createElement("section");
+        section.setAttribute("id", `${Math.random}`);
+        let html = `
+            <p class="time">${msg.time}</p>
+            <p class="sender">${msg.name}</p>
+            <p class="contact">${msg.email}</p>
+            <p class="message">${msg.message}</p>
+        `
+        section.innerHTML = html;
+        messageContainer.appendChild(section);
+    })
+}
+
+renderMessages();

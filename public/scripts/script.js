@@ -7,15 +7,20 @@ function showRegistrationForm(){
     document.querySelector(".create_account_form").style.display = "flex";
 }
 function closeLoginForm(){
+    hideOverlay();
     document.querySelector(".login_form").style.display = "none";
 }
 function closeRegistrationForm(){
+    hideOverlay();
+
     document.querySelector(".create_account_form").style.display = "none";
 }
 function showMessageForm(){
     document.querySelector(".message_form").style.display = "flex";
 }
 function closeMessageForm(){
+    hideOverlay();
+
     document.querySelector(".message_form").style.display = "none";
 }
 
@@ -23,8 +28,20 @@ document.getElementById("messageButton").addEventListener("click",() => {
     showMessageForm();
 })
 
+function showOverlay(){
+    console.log("show overlay")
+    document.querySelector("#overlay").style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+function hideOverlay(){ 
+    console.log("hide overlay")
+
+    document.querySelector("#overlay").style.display = "none";
+    document.body.style.overflow = "scroll";
+}
 
 function login(){
+    showOverlay();
     let username = document.querySelector(".login_form #username"),
     password = document.querySelector(".login_form #password");
 
@@ -58,6 +75,7 @@ function login(){
 }
 
 function createAccount(){
+    showOverlay();
     let username = document.querySelector(".create_account_form #name"),
     password = document.querySelector(".create_account_form #password");
     cpassword = document.querySelector(".create_account_form #cpassword");
@@ -97,6 +115,7 @@ function createAccount(){
 
 
 function sendMessage(){
+    showOverlay();
     let name = document.querySelector(".message_form #name"),
     email = document.querySelector(".message_form #email"),
     message = document.querySelector(".message_form #message");

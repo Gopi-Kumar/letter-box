@@ -5,13 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
-    <title>Letter Box</title>
+    <title>Home || Letter Box</title>
     <link rel="stylesheet" href="./styles/css/index.css">
 </head>
 <body>
     <!-- <img id="backgroundImg" src="./images/background.png" alt=""> -->
     <div class="header">
-        <div class="logo"><p>Letter Box</p></div>
+        <div class="logo">
+            <img src="./images/logo.png" alt="">
+            <a href="#">Letter Box</a></div>
         <div class="navbar">
             <nav>
                 <a href="#documentation">Documention</a>
@@ -40,7 +42,7 @@
         </div>
 
     </div>
-    <!-- <div class="overlay"></div> -->
+    <div id="overlay"></div>
     <div class="create_account_form" style="display: none;">
         <div class="close_form">
             <button onclick="closeRegistrationForm()"><p>x</p></button>
@@ -100,8 +102,8 @@
 
     <div id="documentation">
         <h1>How to use letter box</h1>
-        <p>Step 1. Create account on letter box</p>
-        <p>Step 2. Make request to  <span>https://letter-box.heroku.app/postletter/yourusername</span> for posting letter.here is javascript code emplementation</p>
+        <p><b>Step 1.</b> Create account on letter box</p>
+        <p><b>Step 2.</b> Make request to  <span>https://letter-box.heroku.app/postletter/yourusername</span> for posting letter.here is javascript code emplementation</p>
         <pre>
       
             var myHeaders = new Headers();
@@ -130,7 +132,7 @@
             });
     
         </pre>
-        <p>Step 3. Login to letter box to see your messages.</p>
+        <p><b>Step 3.</b> Login to letter box to see your messages.</p>
         
     </div>
     <!-- <div id="about">

@@ -1,10 +1,17 @@
 @import './utills.scss';
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Assistant:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Assistant&family=firacode:wght@100;200;300;400;500;600&display=swap');
 body{
     background-image : url("../../images/background.png");
     background-size: contain;
     font-family:Assistant;
-    
+    #overlay{
+        width:100%;
+        height: 800px;
+        background:$tc1;
+        position:absolute;
+        top:0;
+        display: none;
+    }
     .header{
         position:sticky;
         top:0;
@@ -13,17 +20,32 @@ body{
         background:$tc1dark;
         margin-top: 30px;
         .logo{
-            font-size: 30px;
-            color:$tc2;
+            @include display_as_row_center();
+            font-size: 20px;
             font-weight: bold;
             padding:10px 20px;
+            img{
+                width:20px;
+            }
+            a{
+                margin-left: 15px;
+                text-decoration: none;
+                color:$white-text;
+
+
+            }
         }
         .navbar{
             nav{
+                #logoutButton{
+                    &:hover{
+                        background:$tc2;
+                    }
+                }
                 a{
                     text-decoration: none;
                     color:$white-text;
-                    padding:19px 20px;
+                    padding:16px 20px;
                     font-size: 15px;
                     font-weight: light;
                     &:hover{
@@ -51,6 +73,7 @@ body{
                 width:500px;
                 font-size: 20px;
                 line-height: 30px;
+                // font-weight: 300;
                 a{
                     color:$tc2;
                 }
@@ -136,7 +159,7 @@ body{
         display: none;
     }
     #documentation{
-        color:$tc1dark;
+        color:$black;
         font-family: Assistant;
         background:$white;
         // width:700px;
@@ -145,6 +168,12 @@ body{
         padding:2rem 3rem;
         // border-radius: 10px;
         box-shadow: 2px 2px 10px 1px $black;
+        span{
+            background:$light-gray;
+            padding:4px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
         pre{
             width:600px;
             background:rgb(41, 40, 40);
@@ -154,6 +183,9 @@ body{
             padding: 20px;
             font-size:13px;
             font-weight: 100;
+            border-radius: 5px;
+            box-shadow:2px 2px 5px 1px $black;
+            font-family: firacode;
         }
         h1{
             text-align: center;
@@ -162,6 +194,54 @@ body{
         }
         p{
             margin:5px;
+            
+        }
+    }
+    #inbox{
+        background:$tc1dark;
+        border-top:5px solid $tc1;
+        h1{
+            color:$tc2;
+            padding:1rem;
+        }
+        #messages{
+            margin-left: calc(50% - 550px);
+            padding-bottom: 3rem;
+            section{
+                width:1100px;
+                border:3px solid $tc1;
+                border-bottom: 0;
+                &:last-child{
+                    border-bottom: 3px solid $tc1;
+                }
+                @include display_as_row();
+                p{
+                    padding:0.5rem;
+                    color:$light-gray;
+                    @include display_as_column_center();
+                    
+                }
+                .sender{
+                    width:250px;
+                    overflow:hidden;
+                    border-right:3px solid $tc1;
+                 
+                }
+                .contact{
+                    width:250px;
+                    border-right:3px solid $tc1;
+                    
+                }
+                .time{
+                    width: 100px;
+                    border-right:3px solid $tc1;
+         
+                }
+                .message{
+                    width:500px;
+                  
+                }
+            }
         }
     }
 }
