@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Assistant:wght@200;300;400;500;600&display=swap');
 body{
     background-image : url("../../images/background.png");
-    background-size: cover;
+    background-size: contain;
     font-family:Assistant;
     
     .header{
+        position:sticky;
+        top:0;
         @include display_as_row_space_between();
         width:100%;
         background:$tc1dark;
@@ -21,7 +23,7 @@ body{
                 a{
                     text-decoration: none;
                     color:$white-text;
-                    padding:50px 20px;
+                    padding:19px 20px;
                     font-size: 15px;
                     font-weight: light;
                     &:hover{
@@ -132,6 +134,35 @@ body{
     }
     .message_form{
         display: none;
+    }
+    #documentation{
+        color:$tc1dark;
+        font-family: Assistant;
+        background:$white;
+        // width:700px;
+        margin: 0px auto;
+        margin-top: 10rem;
+        padding:2rem 3rem;
+        // border-radius: 10px;
+        box-shadow: 2px 2px 10px 1px $black;
+        pre{
+            width:600px;
+            background:rgb(41, 40, 40);
+            color:rgb(255, 233, 40);
+            margin:1rem auto;
+            // margin:1rem;
+            padding: 20px;
+            font-size:13px;
+            font-weight: 100;
+        }
+        h1{
+            text-align: center;
+            margin:15px;
+    
+        }
+        p{
+            margin:5px;
+        }
     }
 }
 

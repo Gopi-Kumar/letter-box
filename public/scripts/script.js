@@ -107,6 +107,7 @@ function sendMessage(){
         var raw = JSON.stringify({
             "name" : name, 
             "email" : email,
+            "message" : message,
         });
 
         var requestOptions = {

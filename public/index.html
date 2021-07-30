@@ -14,8 +14,8 @@
         <div class="logo"><p>Letter Box</p></div>
         <div class="navbar">
             <nav>
-                <a href="#">Documention</a>
-                <a href="#">About</a>
+                <a href="#documentation">Documention</a>
+                <!-- <a href="#about">About</a> -->
                 <a href="#" id="messageButton">Message Us</a>
             </nav>
         </div>
@@ -27,7 +27,8 @@
         <div class="welcome_para">
             <h1>Welcome to LETTER BOX</h1>
             <p>
-                Login to see messages or create a
+                letter box is free api. you can use it on your website to get messages from your visitors
+                login to see your messages or create a
                 account on letter box to use letter box 
                 (no email requires).if you don't know how
                 to use letter box then here is <a href="#">Documention</a>
@@ -42,7 +43,7 @@
     <!-- <div class="overlay"></div> -->
     <div class="create_account_form" style="display: none;">
         <div class="close_form">
-            <button onclick="closeRegistrationForm()"><p>x </p></button>
+            <button onclick="closeRegistrationForm()"><p>x</p></button>
         </div>
         <div class="name">
             <div class="name">
@@ -96,6 +97,47 @@
         </div>
         <button onclick="sendMessage()">Send Message</button>
     </div>
+
+    <div id="documentation">
+        <h1>How to use letter box</h1>
+        <p>Step 1. Create account on letter box</p>
+        <p>Step 2. Make request to  <span>https://letter-box.heroku.app/postletter/yourusername</span> for posting letter.here is javascript code emplementation</p>
+        <pre>
+      
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+                "name" : name, 
+                "email" : email,
+                "message" : message,
+            });
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch(`${endpoint}/postletter/yourusername`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+            })
+            .catch(error => {
+                console.log("error",error);
+            });
+    
+        </pre>
+        <p>Step 3. Login to letter box to see your messages.</p>
+        
+    </div>
+    <!-- <div id="about">
+        <h1>About letter box</h1>
+        <p></p>
+    </div> -->
+
     <script src="./scripts/script.js"></script>
 
 </body>
