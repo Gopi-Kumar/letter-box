@@ -16,9 +16,7 @@
             <nav>
                 <a href="#">Documention</a>
                 <a href="#">About</a>
-                <a href="#">Message Us</a>
-                <a href="#">Login</a>
-                <a href="#">Create Account</a>
+                <a href="#" id="messageButton">Message Us</a>
             </nav>
         </div>
     </div>
@@ -29,23 +27,22 @@
         <div class="welcome_para">
             <h1>Welcome to LETTER BOX</h1>
             <p>
-
                 Login to see messages or create a
                 account on letter box to use letter box 
                 (no email requires).if you don't know how
                 to use letter box then here is <a href="#">Documention</a>
             </p>
             <div class="buttons">
-                <button id="loginButton">Login</button>
-                <button id="createAccountButton">Create Account</button>
+                <button id="loginButton" onclick="showLoginForm()">Login</button>
+                <button id="createAccountButton" onclick="showRegistrationForm()">Create Account</button>
             </div>
         </div>
 
     </div>
     <!-- <div class="overlay"></div> -->
-    <div class="create_account_form">
+    <div class="create_account_form" style="display: none;">
         <div class="close_form">
-            <button><p>x </p></button>
+            <button onclick="closeRegistrationForm()"><p>x </p></button>
         </div>
         <div class="name">
             <div class="name">
@@ -61,11 +58,11 @@
                 <input type="password" id="password">
             </div>
         </div>
-        <button onclick="login()">Create Account</button>
+        <button onclick="createAccount()">Create Account</button>
     </div>
     <div class="login_form">
         <div class="close_form">
-            <button><p>x </p></button>
+            <button onclick="closeLoginForm()"><p>x </p></button>
         </div>
         <div class="name">
             <div class="username">
@@ -81,7 +78,7 @@
     </div>  
     <div class="message_form">
         <div class="close_form">
-            <button><p>x </p></button>
+            <button onclick="closeMessageForm()"><p>x </p></button>
         </div>
         <div class="name_email">
             <div class="name">
@@ -98,6 +95,8 @@
             <textarea name="" id="message" cols="30" rows="10"></textarea>
         </div>
         <button onclick="sendMessage()">Send Message</button>
-    </div> -->
+    </div>
+    <script src="./scripts/script.js"></script>
+
 </body>
 </html>
