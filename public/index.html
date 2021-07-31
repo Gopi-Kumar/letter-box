@@ -58,7 +58,7 @@
             </div>
             <div class="email">
                 <label for="email">Confirm password</label>
-                <input type="password" id="password">
+                <input type="password" id="cpassword">
             </div>
         </div>
         <button onclick="createAccount()">Create Account</button>
@@ -106,30 +106,30 @@
         <p><b>Step 2.</b> Make request to  <span>https://letter-box.heroku.app/postletter/yourusername</span> for posting letter.here is javascript code emplementation</p>
         <pre>
       
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
 
-            var raw = JSON.stringify({
-                "name" : name, 
-                "email" : email,
-                "message" : message,
-            });
+        var raw = JSON.stringify({
+            "name" : name, 
+            "email" : email,
+            "message" : message,
+        });
 
-            var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-            };
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
 
-            fetch(`${endpoint}/postletter/yourusername`, requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                console.log(result);
-            })
-            .catch(error => {
-                console.log("error",error);
-            });
+        fetch(`${endpoint}/postletter/yourusername`, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            console.log(result);
+        })
+        .catch(error => {
+            console.log("error",error);
+        });
     
         </pre>
         <p><b>Step 3.</b> Login to letter box to see your messages.</p>

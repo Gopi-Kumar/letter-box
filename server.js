@@ -62,7 +62,7 @@ app.post("/newuser", async (req,res)=>{
             res.json({message : "Username already taken"}) 
         }
     }).catch(e => {
-        res.json({message : e});
+        res.json({message : e}); 
     });
     
     
@@ -70,6 +70,7 @@ app.post("/newuser", async (req,res)=>{
 
 app.post("/login",async (req,res)=>{
     let {username, password} = req.body;
+    console.log(username,password);
     await receiverBox.findOne({username, password}).then( data => {
         if(data){
             console.log(data);
@@ -106,7 +107,9 @@ app.post("/postletter/:receiver", async (req,res)=>{
     })
     
 })
-
+app.get("/inbox", (req,res)=>{
+    res.sendFile(path.join(__dirname + "/public/inbox.html"));
+})
 //listening
 app.listen(port, () => {
     console.log("server is runnig at http://localhost:" + `${port}`)
