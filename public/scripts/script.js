@@ -1,6 +1,6 @@
 var endpoint = 'http://localhost:3002'
-import {showNotification} from './notifiaction'
-showNotification();
+// import {showNotification} from './notifiaction'
+// showNotification();
 function showLoginForm(){
     showOverlay();
     document.querySelector(".login_form").style.display = "flex";
@@ -154,3 +154,4 @@ function sendMessage(){
         console.log("Fill all field.")
     }
 }
+

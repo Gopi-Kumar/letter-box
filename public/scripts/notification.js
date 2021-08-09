@@ -1,4 +1,4 @@
-export function showNotification(msg = "Wait"){
+function showNotification(msg = "Wait"){
     let div = document.createElement("div");
     div.setAttribute("id", "notification");
     let html = `

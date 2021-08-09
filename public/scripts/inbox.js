@@ -55,3 +55,7 @@ function renderMessages(){
 }
 
 renderMessages();
+
+function logout(){
+    window.location.href = "/"
+}
