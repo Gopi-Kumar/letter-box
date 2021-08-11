@@ -31,7 +31,10 @@
 //     },
 // ]
 
-let messages = JSON.parse(localStorage.getItem("letter-box-inbox"));
+if(localStorage.getItem("letter-box-userlogged") == "false"){
+    location.href = "/"
+}else{
+    let messages = JSON.parse(localStorage.getItem("letter-box-inbox"));
 console.log(messages)
 
 
@@ -57,5 +60,9 @@ function renderMessages(){
 renderMessages();
 
 function logout(){
+    localStorage.setItem("letter-box-userlogged","false");
+    localStorage.removeItem("letter-box-inbox");
     window.location.href = "/"
 }
+}
+

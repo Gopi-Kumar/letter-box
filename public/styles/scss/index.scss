@@ -155,6 +155,19 @@ body{
         height:350px;
         top: calc(50% - 175px);
         display: none;
+        .remember_me_checkbox{
+            @include display_as_row_center();
+            input{
+                width:20px;
+                &:checked{
+                    color:$tc2;
+                    background:$tc2;
+                }
+            }
+            p{
+                padding-left: 10px;
+            }
+        }
 
     }
     .create_account_form{

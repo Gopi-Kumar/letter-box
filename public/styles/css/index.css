@@ -173,6 +173,22 @@ body .login_form {
   top: calc(50% - 175px);
   display: none;
 }
+body .login_form .remember_me_checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body .login_form .remember_me_checkbox input {
+  width: 20px;
+}
+body .login_form .remember_me_checkbox input:checked {
+  color: #F22A2A;
+  background: #F22A2A;
+}
+body .login_form .remember_me_checkbox p {
+  padding-left: 10px;
+}
 body .create_account_form {
   height: 450px;
   top: calc(50% - 225px);

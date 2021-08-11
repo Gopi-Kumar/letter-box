@@ -1,6 +1,9 @@
 var endpoint = 'http://localhost:3002'
 // import {showNotification} from './notifiaction'
 // showNotification();
+if(localStorage.getItem("letter-box-userlogged") == "true"){
+    location.href = "./inbox.html"
+}
 function showLoginForm(){
     showOverlay();
     document.querySelector(".login_form").style.display = "flex";
@@ -40,11 +43,15 @@ function hideOverlay(){
     document.querySelector("#overlay").style.display = "none";
     document.body.style.overflow = "scroll";
 }
-
+let rememberUser = false;
+let checkbox = document.getElementById("remember_me_checkbox");
+checkbox.onclick = ()=>{
+    rememberUser = !rememberUser;
+}
 function login(){
     let username = document.querySelector(".login_form #username").value,
     password = document.querySelector(".login_form #password").value;
-    
+  
     if(username && password){
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -70,6 +77,9 @@ function login(){
             }else{
                 console.log(result.letters);
                 localStorage.setItem("letter-box-inbox", JSON.stringify(result.letters));
+                localStorage.setItem("letter-box-username", username);
+                localStorage.setItem("letter-box-password", password);
+                localStorage.setItem("letter-box-userlogged", "true");
                 window.location.href = "/inbox"
             }
 
