@@ -56,7 +56,13 @@ body .header .logo a {
   text-decoration: none;
   color: white;
 }
-body .header .navbar nav #logoutButton:hover {
+body .header .navbar nav button {
+  background-color: #F22A2A;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+body .header .navbar nav button:hover {
   background: #F22A2A;
 }
 body .header .navbar nav a {
@@ -207,15 +213,17 @@ body #documentation {
 }
 body #documentation span {
   background: #d6d5d5;
-  padding: 4px;
+  padding: 1px 4px;
   border-radius: 2px;
   font-weight: bold;
 }
 body #documentation pre {
-  width: 600px;
+  overflow: scroll;
+  width: 100%;
+  max-width: 600px;
   background: #292828;
   color: #ffe928;
-  margin: 1rem auto;
+  margin: 10px auto;
   padding: 20px;
   font-size: 13px;
   font-weight: 100;

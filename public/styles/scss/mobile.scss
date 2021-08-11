@@ -1,0 +1,82 @@
+
+@media only screen and(max-width:350px){
+    body{
+        #inbox{
+            
+        }
+    }
+}
+@media only screen and (max-width:550px){
+    body{
+        .hero{
+            .welcome_para{
+                p{
+                    width:100%;
+                    font-size: 18px;
+                    padding:10px;
+                    line-height: 20px;
+                    font-weight: lighter;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and(max-width:450px){
+    body{
+        .header{
+            flex-direction: column;
+            padding:10px;
+            .navbar{
+                margin:5px;
+               nav a{
+                  padding:10px; 
+               }
+            }
+        }
+        .hero{
+            .buttons{
+                button{
+                    padding:10px 25px;
+                    font-size: 13px;
+                    margin:10px;
+                }
+            }
+        }
+        #documentation{
+            margin-top: 5rem;
+            h1{
+                font-size: 20px;
+            }
+            span{
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and(max-width:350px){
+    .hero{
+        img{
+            width:100px;
+        }
+       .welcome_para{
+           p{
+                font-size: 12px;
+           }
+       }
+        .buttons{
+            button{
+               width:250px;
+            }
+        }
+    }
+    #documentation{
+        p{
+            
+            
+        }
+        
+    }
+}
