@@ -1,4 +1,4 @@
-var endpoint = 'https://letter-box.herokuapp.com/'
+var endpoint = 'https://letter-box.herokuapp.com'
 // import {showNotification} from './notifiaction'
 // showNotification();
 if(localStorage.getItem("letter-box-userlogged") == "true"){
